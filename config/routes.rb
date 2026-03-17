@@ -7,4 +7,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :restaurants, only: [ :index, :show, :create, :update, :destroy ] do
+    post "menu_items", on: :member, to: "restaurants#add_menu_item"
+    get "menu_items", on: :member, to: "restaurants#list_menu_items"
+  end
+
+  resources :menu_items, only: [ :update, :destroy ]
 end

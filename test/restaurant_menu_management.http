@@ -1,0 +1,79 @@
+# List all restaurants
+GET http://localhost:3000/restaurants
+
+###
+
+# Get a restaurant by id (includes menu items)
+GET http://localhost:3000/restaurants/1
+
+###
+
+# Create a new restaurant
+POST http://localhost:3000/restaurants
+Content-Type: application/json
+
+{
+  "name": "Restaurant 3",
+  "address": "Jl. Sudirman No. 25, Bandung",
+  "phone": "+62 22 555 2222",
+  "opening_hours": "10:00-22:00"
+}
+
+###
+
+# Update a restaurant
+PUT http://localhost:3000/restaurants/1
+Content-Type: application/json
+
+{
+  "name": "Restaurant 1 Updated",
+  "address": "Jl. Merdeka No. 10, Jakarta",
+  "phone": "+62 21 555 1111",
+  "opening_hours": "09:00-21:00"
+}
+
+###
+
+# List all menu items of a restaurant
+GET http://localhost:3000/restaurants/1/menu_items
+
+###
+
+# List all menu items of a restaurant by category
+GET http://localhost:3000/restaurants/1/menu_items?category=dessert
+
+###
+
+# Add a new menu item to a restaurant
+POST http://localhost:3000/restaurants/1/menu_items
+Content-Type: application/json
+
+{
+  "name": "",
+  "description": "Pisang dibalut dengan adonan tepung tapioka berwarna hijau yang dikukus dan disajikan dengan es batu, bubur sumsum, kue selendang mayang dan sirup",
+  "price": 10000,
+  "category": "dessert"
+}
+
+###
+
+# Delete a restaurant
+DELETE http://localhost:3000/restaurants/3
+
+###
+
+# Update a menu item
+PUT http://localhost:3000/menu_items/11
+Content-Type: application/json
+
+{
+  "name": "Es Pisang Ijo Updated",
+  "description": "Pisang dibalut dengan adonan tepung tapioka berwarna hijau yang dikukus dan disajikan dengan es batu, bubur sumsum, kue selendang mayang dan sirup gula aren dan susu kental manis",
+  "price": 15000,
+  "category": "dessert"
+}
+
+###
+
+# Delete a menu item
+DELETE http://localhost:3000/menu_items/11

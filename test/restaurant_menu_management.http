@@ -44,6 +44,16 @@ GET http://localhost:3000/restaurants/1/menu_items?category=dessert
 
 ###
 
+# List all menu items of a restaurant by name
+GET http://localhost:3000/restaurants/1/menu_items?name=goreng
+
+###
+
+# List all menu items of a restaurant by category and name
+GET http://localhost:3000/restaurants/1/menu_items?category=appetizer&name=goreng
+
+###
+
 # Add a new menu item to a restaurant
 POST http://localhost:3000/restaurants/1/menu_items
 Content-Type: application/json

@@ -41,6 +41,7 @@ class RestaurantsController < ApplicationController
 
     menu_items = restaurant_with_menu_items.menu_items
     menu_items = menu_items.where(category: params[:category]) if params[:category].present?
+    menu_items = menu_items.where("name LIKE ?", "%#{params[:name]}%") if params[:name].present?
 
     render json: menu_items, status: :ok
   end

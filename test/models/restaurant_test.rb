@@ -1,7 +1,8 @@
 require "test_helper"
 
 class RestaurantTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "name and address are required" do
+    restaurant = Restaurant.new()
+    assert_not restaurant.save, "Restaurant name and address are required"
+  end
 end

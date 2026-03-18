@@ -1,7 +1,6 @@
 class RestaurantsController < ApplicationController
   include RestaurantPermittable
   include MenuItemPermittable
-  include ApiExceptionHandler
 
   def create
     restaurant = Restaurant.create!(restaurant_params)
@@ -10,7 +9,7 @@ class RestaurantsController < ApplicationController
 
   def index
     restaurants = Restaurant.all
-    render json: restaurants, status: :ok
+    render json: paginate(restaurants), status: :ok
   end
 
   def show
@@ -43,6 +42,6 @@ class RestaurantsController < ApplicationController
     menu_items = menu_items.where(category: params[:category]) if params[:category].present?
     menu_items = menu_items.where("name LIKE ?", "%#{params[:name]}%") if params[:name].present?
 
-    render json: menu_items, status: :ok
+    render json: paginate(menu_items), status: :ok
   end
 end

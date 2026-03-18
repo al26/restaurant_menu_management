@@ -1,6 +1,5 @@
 class MenuItemsController < ApplicationController
   include MenuItemPermittable
-  include ApiExceptionHandler
 
   def update
     menu_item = MenuItem.find(params[:id])

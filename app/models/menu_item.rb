@@ -1,5 +1,5 @@
 class MenuItem < ApplicationRecord
-  belongs_to :restaurant, dependent: :destroy
+  belongs_to :restaurant
 
   attribute :is_available, :boolean, default: true
 

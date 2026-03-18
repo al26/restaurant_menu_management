@@ -43,7 +43,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
   # 5. Delete Restaurant
   test "should destroy restaurant" do
-    # since we do not put dependent: destroy on the model, we try to clean all menus first to avoid delete contraints error
+    # saver way incase we forget to add dependent: :estroy on the model, we try to clean all menus first to avoid delete contraints error
     @restaurant.menu_items.destroy_all
 
     assert_difference("Restaurant.count", -1) do
